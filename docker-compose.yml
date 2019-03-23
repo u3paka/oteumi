@@ -1,0 +1,26 @@
+version: '2'
+services:
+  redis:
+    container_name: redis
+    image: redis:4.0-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data/redis:/data
+      
+  redis_commander:
+    image: tenstartups/redis-commander
+    command: --redis-host redis
+    links:
+      - redis:redis
+    ports:
+      - 8081:8081
+
+  jumanpp:
+    container_name: jumangok
+    image: u3paka/jumangok
+    restart: always
+    ports:
+      - 12000:12000
+    command: jumangok serve

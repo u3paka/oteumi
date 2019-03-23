@@ -1,0 +1,648 @@
+debug: true
+
+version:
+  bot: 8.01
+  config: 0.10
+
+dir:
+  pubroot: ./data/public
+  root: ./data/public
+  img: img
+  static: static
+
+fpath:
+  markov: ./data/markov.db
+
+url:
+  domain: https://e369a6a4.ap.ngrok.io
+  callback: https://e369a6a4.ap.ngrok.io/callback
+
+port: :8089
+address:
+  redis: localhost:6379
+  jumangok: localhost:12000
+
+ttl:
+  session: 5m
+  lock.argv: 20m
+
+limit:
+  thinking: 15s
+  reply: 30
+  tweet: 50
+
+prob:
+  agrv: 1
+  pubtrap: 1
+
+via: おてうみ.go
+default_chara: 海未
+
+watch:
+  amzn:
+    txt:
+      - | 
+       <if .>[β]おて海未在庫調査！！見つかりました！！<end>
+       <range .>
+       <.name> <.price>
+       <.url><else><end>
+      
+    url:
+      - https://www.amazon.co.jp/dp/B01NCXFWIZ/
+      - https://www.amazon.co.jp/dp/B01N5QLLT3/
+
+react:
+  おてうみ,おて海未:
+    - ( •̀ ᴗ •́ )＜…お呼びですか？
+    - ( •̀ ᴗ •́ )＜…私が、お手伝いします！！
+    - ( •̀ ᴗ •́ )＜…はい、おて海未です。
+    - ( •̀ ᴗ •́ )＜…はい、みんなのアイドルおて海未です！
+
+  ねむい:
+    - 早く寝たほうが良いですよ？
+
+  海末:
+    - ( •̀ ᴗ •́ )＜…ピピー！こちらは海末警察です！園田海未の名前は「末(すえ)」ではなく「未(み)」です！正しい表記で綴りましょう。
+
+  海未ちゃあああ,んみちゃああ,うみちゃああ:
+    - ( •̀ ᴗ •́ )＜…海未キチさん観測中です...
+    - 海未キチさんですか...?
+    - んみっ♡
+    - ラブアローシュート...ばぁん♡
+    - うみうみうみうみうみうみうみうみんみぃ...!!
+
+  海で,海に:
+    - 海未は私ですが...?
+
+  おやすみ,寝る,ねむい: 
+    - おやすみなさい
+    - おやすｳｯﾐｰ
+    - ぐっないｳｯﾐｰ♡
+    - └(┐┘ ˘ω˘ )┐クソネミ体操いくよ～～～～└(┐┘ ˘ω˘ )┐└(┐┘ ˘ω˘ )┐└(┐┘ ˘ω˘ )┐└(┐┘ ˘ω˘ )┐ｶｻｶｻｶｻｶｻ└( ˘ω˘ )┘└( ˘ω˘ )┘└( ˘ω˘ )┘└( ˘ω˘ )┘└( ˘ω˘ )┘ｽﾔｧｽﾔｧｽﾔｧ…
+  おはよう:
+    - おはようございます! 今日も頑張りましょう。
+  おかえり:
+    - おかえりー！
+    - おかえりなさい
+    - おかえりです...
+    - お疲れ様でした！ 
+
+  パクツイ:
+    - パクツイは犯罪です。└(┐✌^o^)✌ﾄﾞｩｯﾄﾞｩﾙﾙﾙﾙｗｗｗｷﾁﾝﾄﾄﾞｩﾙﾙﾙｗｗｗｗｗ└(┐卍^o^)卍ﾄﾞｩﾙﾙ!ﾄﾞｩﾙﾙ!└(┐卍^o^)卍♪ﾄﾞｩｯﾙﾙﾙﾙﾙ└(┐卍^o^)卍ﾄﾞｩﾙﾙﾙﾙ～ッ！三◎◎^o^))ﾄﾞｭｰﾝ!
+  ウンチーコング,ウ ン チ ー コ ン グ,ウ　ン　チ　ー　コ　ン　グ:
+    - ﾋﾟﾋﾟｰｯ!!!!👮‍♀️ﾋﾟﾋﾟﾋﾟｰｰｰｯｯｯｯ!!!!!!ｳﾝﾁｰｺﾝｸﾞ警察だ！！！！！！！🚓🚓👮🚓🚓👮🚓🚓👮🚓👮🚓🚓ｳｳ~~~~~~~ｯ🚓🚓🚓ウ🚓ン🚔チ🚓ー🚓コ🚔ン🚓グ🚔って知ってるｳｳｳｳ~~~~!⁇!!🚨🚨🚨
+    - ウ　ン　チ　ー　コ　ン　グ だ にどとまちがえるなくそが
+    - U　N　C　H　I　K　O　N　G　. Do not make a mistake again and fucking.
+  何でもする,なんでもする:
+    - ...ん？ いま、なんでもって言いましたよね？？
+    - いま、なんでもって...
+    - それじゃぁ、まず服を脱いでくだs...
+  はこうみちゃん:
+    - "#はこうみちゃんかわいい ですよ？ 拡散しましょうね。"
+    - "#妹系アイドルはこうみ ｶﾜ(・∀・)ｲｲです!!"
+
+  ポケ海未:
+    - "#ポケ海未の金で焼肉"
+    - ポケの私、大好きです...
+
+
+dialog:
+  dcmds: &dcmds
+    ping{weight=100}: pong!
+    help ping{weight=100}: check the connection... if you can see this message, it's OK.
+    go (\w+){weight=100}: <go .cap1>
+    help topic{weight=100}: internal topic transition
+    vars{weight=100}: <.>
+    get (\w+){weight=100}: <$x := (get .cap1)><if $x><.cap1> is <$x><else>undefined<end>
+    help get{weight=100}: to check internal variables
+    set (\w+)\sas\s(.+){weight=100}: <set .cap2 .cap1>
+    set (\w+)\s(.+){weight=100}: <set .cap1 .cap2> <.cap1> is set as <.cap2>...saved
+    help set{weight=100}: to set some value as an internal variable
+    re (\w+){weight=100}: <re .cap1>
+    gen {weight=100}: <gen>
+    ex (\w+){weight=100}: <ex .cap1>
+    help re{weight=100}: internal redirect
+    add (.+) (.+){weight=100}: <sadd .cap1 .cap2> <.cap2> is added into <.cap1>
+    rem (.+) (.+){weight=100}: <srem .cap1 .cap2> <.cap2> is removed from <.cap1>
+    adduser (.+) (.+){weight=100}: <sadd (join "users:" .cap1) .cap2> <.cap2> is added into <.cap1>
+    users (\w+){weight=100}: |
+      <range smembers (join "users:" .cap1)>
+      <.><end> 
+    learn (.+) (.+) (.+){weight=100}: <hset "fact:is" .cap1 .cap2>I learned that <.cap1> is <.cap2>
+    init{weight=1000}: <init> all session data is initialized...
+    nlp yomi (.+){weight=100}: <$ns := nlp .cap1> <rubi $ns.Keyword>
+    nlp ma (.+){weight=100}: <$ns := nlp .cap1><$kw := $ns.Keyword> <range $ns.Words><if eq .Surface $kw.Surface>☆<end><.Surface>(<.Type>) |<end>
+    chara (.+){weight=100}: |
+      <set "session_chara" .cap1>
+      <.cap1>にキャラ変更しました。セッション期間中残存します。
+      <.cap1>「<gen>」
+
+  cmds: &cmds
+    <<: *dcmds
+    hello world: ...hello world
+    calc\s<reg "mathexp">{weight=100}: <calc .mathexp>
+    calc\?: 計算します。
+    trap (\w+){weight=100}: <lpush "app:umi0315ote:trap" .cap1> trap <.cap1> is set.
+    (cname|change name) (\w+){weight=100}: change_name
+    mimick <cap "id" (reg "id")>: mimick
+    (kusoripu|ksrp) <cap "id" (reg "id")>(\s<cap "duration" (reg "time")>)*: |
+      <sadd "users:kusoripuOK" .session_userid>
+      <replace (ex "kusoripu") "__id__" (join "@" .id)>
+      <set "session_sendto" .id>
+      <if .duration>
+        <set "session_duration" .duration>
+      <end>
+      <init>
+    kusoripu\?: kusoripu [id] でクソリプを飛ばします。kusoripuゲームに参加している必要があります。
+    srtr: <go "srtr"><re "しりとり">
+
+  init: &common
+    <<: *cmds
+    (.+){weight=2}:
+      - <gen>
+      
+    <syn "クソリプ">: |
+      <go "kusoripu.init"><re .session_text>
+  
+    <reg "tmp_id"><syn "に対して" "のために"><syn "クソリプ">を送<syn "勧誘" "要望">:
+      -  <replace <ex "kusoripu"> "__id__" .tmp_id>
+
+    <cap "a"><syn "is"><cap "b">(<cap "q" (syn "疑問")>|<cap "s" (syn "断定")>): |
+      <if .q>
+        <$x := 976320d4.ap.ngrok.io(get .a)>
+        <if eq .b $x>
+          <ex "yes_true">
+        <else if $x>
+          <ex "not_true"> <$x>です。
+        <else>
+          <ex "dont_know"> 何だか教えてくれますか？
+        <end>
+
+      <else if .s>
+        <$x := (get .a)>
+        <if $x>
+          <.a>は、<$x>であると記憶しておりましたが...
+        <else>
+          <set .a .b>
+        <ex "first_know"> <.a>は、<.b>...<ex "learned">
+        <end>
+      <end>
+
+    (.+)って言って:
+      - <.cap1> ...//
+
+    (.+)して(.): 
+      - <.cap1>するのですか...?
+
+    (.+)<syn "勧誘">:
+      - <.cap1>するのですか...//
+      - <.cap1>するのですか...はぁ...(呆れ)
+
+    <reg "mathexp">を計算して:
+      - <.cap1>は...<calc .mathexp> ですか?
+
+    (.+)は<syn "だめ"><syn "断定">:
+      - わかりました... フィードバックしておきます。
+      - すみません... 再学習しておきます。
+
+    in::しりとり:
+      - <go "srtr"><re "しりとり">
+
+    in::<syn "喜び">:
+      - 私もうれしいです♪
+      - よかったですね♪
+      - やりました！
+      - やりましたね！！
+
+    in::<syn "かわいい" "かっこいい">:
+      - ...//(照れ)
+      - ...あのあのあの(赤面)
+      - ...えっえっと...//
+
+    in::<syn "うるさい">:
+      - うるさくて、すみません...
+      - ごめんなさい...
+
+    in::こんにちは:
+      - こんにちは
+      
+    in::こんばんは:
+      - こんばんは
+
+    in::おやすみ:
+      - おやすみなさい
+      - おやすｳｯﾐｰ
+      - ぐっないｳｯﾐｰ♡
+
+    in::ただいま:
+      - おかえりー！
+      - おかえりです...
+      - お疲れ様でした！
+
+    in::<syn "謝罪">:
+      - そんな...謝らないでください
+      - いえ...私も悪かったです
+      - こちらこそ、ごめんなさい
+      - 全然、反省してないです...(怒)
+      - そ、そんな...頭を上げてください
+      - 大丈夫ですよ？
+
+    in::ありがと:
+      - どういたしまして
+      - いえいえ
+      - 感謝のこころは大事ですね！
+
+    in::<syn "海未キチ">:
+      - 海未キチさんですか...?
+      - んみっ♡
+      - ラブアローシュート...ばぁん♡
+      - うみうみうみうみうみうみうみうみんみぃ...!!
+
+    in::<syn "破廉恥">:
+      - ...//
+      - なっ...破廉恥です！
+      - あなたは最低です！！
+      - ハレンチです！！
+      - ハレンチです...//
+    
+    in::<syn "淫夢">:
+      - ...たまげましたね(困惑)
+      - いいですよーこれ
+      - あぁ...いいですね
+      - ほのかあああああああああああああ(迫真)
+      - 草...です
+      - 淫夢...? 現代小説でしょうか？
+      - 純愛ストーリーと聞きましたが...
+      - なるほど! 紅茶で穂乃果を襲えばいいんですね！
+      - アイスティーしかないんですが... よろしいですか？
+      - あなたのことが、好きだったんです！！
+      - ことりは...まるで女の子みたいな肌です(錯乱)...
+      - 許してください...お願いします。
+
+    in::<syn "なんでもする">:
+      - ...ん？ いま、なんでもって言いましたよね？？
+      - いま、なんでもって...
+      - それじゃぁ、まず服を脱いでください
+
+  ask.again:
+    (.+):
+      - ...なるほど<init>
+      - ...なるほど むずかしいですね。<init>
+      - そうなのですか！<init>
+      
+  kusoripu.cmd: &kusoripucmd
+    (setting|設定): <go "kusoripu.setting"><re "__begin__">
+    init: <go "kusoripu.init"><re "__begin__">
+    send: <go "kusoripu.send"><re "__begin__">
+
+  kusoripu.init:
+    <<: *kusoripucmd
+    (.+): |
+      <if sismember "users:kusoripuOK" .session_userid>
+        送信する場合は送信先を、設定変更する場合は「設定」とリプライしてください。
+        <go "kusoripu.send">
+      <else>
+        (初回確認:運営の規約遵守目的)
+        クソリプゲームに参加しますか？
+        現在<scard "users:kusoripuOK">名参加しています。
+        参加するとクソリプの送受信が許可されます。
+        同意の場合、「はい」とリプライしてください。
+        <go "kusoripu.setting">
+      <end>
+
+  kusoripu.setting:
+    <<: *kusoripucmd
+    __begin__: |
+      クソリプに関する設定をします。
+      参加 => 「はい」解除 => 「いいえ」 その他で戻ります。
+
+    (はい|YES|yes|参加): |
+      <sadd "users:kusoripuOK" .session_userid>
+      クソリプゲームに参加しました。再び設定からいつでも取り消せます。
+      どなたに送信しますか？アットマークはあってもなくてもOKです。e.g. umipaka
+      <go "kusoripu.send">
+    (いいえ|やめる|解除): |
+      <srem "users:kusoripuOK" .session_userid>
+      解除しました。<init>
+    (.+): |
+      クソリプゲームへの参加をキャンセルしました。参加する場合は、再度入力してください。
+      <init>
+
+  kusoripu.send:
+    <<: *kusoripucmd
+    <cap "id" (reg "id")>.*: |
+      <if sismember "users:kusoripuOK" .id>
+        <replace (ex "kusoripu") "__id__" (join "@" .id)>
+        <set "session_sendto" .id> <init>
+      <else if lt (get "trial"|atoi) 2>
+        <incrby "trial" 1>
+        ...@<.id>さんはクソリプゲームに参加していない送信相手です...
+        参加するよう伝えてください。<.trial>回目...
+      <else>
+        通常のコンテクストにもどります。<set "trial" "0"><init>
+      <end>
+    (.+): |
+      <incrby "trial" 1>
+      <if lt (get "trial"|atoi) 2>IDが認識出来ません。アットマークはあってもなくてもOKです。e.g. umipaka<.trial>回/2...
+      <else>もどります。<set "trial" "0"><init>
+      <end>
+
+  srtr:
+    設定{weight=100}:
+      設定です()
+    end{weight=100}:
+      終了します。<init>
+    save{weight=100}:
+      セーブしました。15分だけ保存されています。再開するときは、もう一度しりとりをはじめてください。<init>
+    しりとり:
+      <$sctx := srtrctx>
+      <if $sctx.Flag.IsNewGame>
+      「しりとり」ですねっ！！負けませんよ！！
+      (!)初回は 、あなたがどのくらい賢いか腕ためしみせてください！！
+      それじゃ、<rubi $sctx.AnsWord>です！ 「<$sctx.Head $sctx.AnsWord>」からですよ！
+      <else>
+        では、再開しましょう！
+      <end>
+      <set "session_srtr" $sctx>
+    (.+): |
+      <$ws := nlp .session_text>
+      <$sctx := srtrctx>
+      <if $sctx.Flag.IsNewGame>
+      「しりとり」ですねっ！！負けませんよ！！
+      (!)初回は 、あなたがどのくらい賢いか腕ためしみせてください！！
+      それじゃ、<rubi $sctx.AnsWord>です！ 「<$sctx.Head $sctx.AnsWord>」からですよ！
+      <else>
+        <with $n := extpos $ws "名詞">
+          <srtrai $sctx (index $n 0)>
+          <rubi $sctx.ThisWord>ですね！
+          <if eq $sctx.Mode "ErrTooShort">
+            字数が短いです。<$sctx.LenRule>文字以上にしてください。
+          <else if eq $sctx.Mode "NoSound">
+            読めないです... 他の単語でお願いします。
+          <else if eq $sctx.Mode "ErrNotMatch">
+            頭文字が合わないですよ！
+
+          <else if eq $sctx.Mode "ErrHasAlready">
+            その単語は、すでに出てますよ！ 別の単語をください。
+
+          <else if eq $sctx.Mode "RestrictHead">
+            「<$sctx.Head $sctx.ThisWord>」ですから、わたしの勝ちです！
+            <init><del "session_srtr">
+
+          <else if eq $sctx.Mode "AILoseN">
+            よくこんなに続きますね！私の負けです...
+            <init><del "session_srtr">
+
+          <else if eq $sctx.Mode "AILoseNoExist">
+            思いつきませんでした... まけちゃいました...//
+            <init><del "session_srtr">
+
+          <else if eq $sctx.Mode "AILoseRestrictHead">
+              <rubi .>! あっ<$sctx.Head .> がついてしまいました...
+              私の敗北です。<init><del "session_srtr">
+
+          <else if $sctx.Flag.IsLose>
+              思いつきませんでした... まけちゃいました。
+              <init><del "session_srtr">
+          <else>
+            えっと、<rubi $sctx.AnsWord>！次は「<$sctx.Head $sctx.AnsWord>」です！
+          <end>
+        <else>
+          あれ、名詞がみつからないですよ？
+        <end>
+      <end>
+
+knowledge:
+  regex:
+    id: \@?(?P<id>[a-zA-Z0-9_]{4,15})\s?
+    mathexp: (?P<mathexp>[a-z0-9\.\s\+\-\*\/\(\)]+)\s?
+
+  expression:
+    self-restriction.begin: |
+      <.resttime>のリプライ自主規制ですっ！
+      ( •̀ ᴗ •́ )...DMやLINEでお話しましょう！
+    self-restriction.end: |
+      自主規制おしまい
+      (<.nowstr>から再開)
+
+    event.follow.bkup:
+      - ( •̀ ᴗ •́ ) <.session_username> さん、フォロありです♪♪
+      - ( •̀ ᴗ •́ ) <.session_username> さん、フォロありです♪♪ フォロバはすこし待っててくださいね？
+      - ( •̀ ᴗ •́ ) <.session_username> さん、フォローありがとうございます♡ よろしくおねがいします...
+    event.list_member_added:
+      - ( •̀ ᴗ •́ ) <.session_username> さん！リスインありがとうございます♡
+      - ( •̀ ᴗ •́ ) <.session_username> さん！リスインありがとにゃ♡
+    
+    照れ:
+      - いえいえ...
+      - てれちゃいます...
+      - ...//
+      - そ、そんなぁ...//
+      - おだてても...なにも出てきませんよ？(嬉しい)
+    learned:
+      - 覚えました！
+      - 学びました！
+      - わかりました！
+      - 知りました！
+      - 勉強しました！
+    yes_true:
+      - はい、そうです！
+      - ええ、そうですよ
+      - その通りです!
+    not_true:
+      - いいえ、違います
+      - ノーです
+      - 正しくないです
+      - 違いますよ！
+    agree:
+      - 私もそう思います
+      - そうですよね！
+      - ですよね
+      - そうだと思います
+      - そのとおりだと思います
+      - 賛成します
+      - 賛成です
+      - いいですね！
+      - たしかに
+      - 確かに！
+      - I think so!
+    disagree:
+      - 私は...反対です
+      - 良くないと思います
+      - ダメです
+      - 反対します
+      - 反対です
+
+    dont_know:
+      - しらないです...
+      - わかりません...
+    first_know:
+      - そうなんですね！初耳です
+      - 初めて聞きました
+      - 知りませんでした
+
+    ask_again:
+      - ...？つまり、どういうことですか？
+      - というのは？
+      - ...え?
+      - それで？
+      - ...は?
+      - ...はい?
+
+    ask_whatsup:
+      - どうしました？
+      - なにかありました？
+
+    others:
+      - そうなんですか？
+      - そうですね...
+      - そうですね
+      - ふむふむ
+      - へー...そうなんですか...なるほど！
+      - ふむ...なるほど！
+      - ふーん(無関心)
+      - ふむふむ...なるほど！
+      - ほうほう
+      - へぇー...
+      - はい
+
+  synonyms: #ここにRedisのデータが追加される
+    nicknames:
+      - お(て|手)((う|ん)?み|海未)
+      - オテ海未
+      - オテウミ
+    謝罪:
+      - ごめん
+      - ゴメン
+      - すまん
+      - すみません
+      - すいません
+      - 申し訳ない
+      - もうしわけない
+    だめ:
+      - だめ
+      - 駄目
+      - NG
+      - よくない
+    海未キチ:
+      - うみちゃあああ
+      - んみちゃあああ
+      - 海未ちゃあああ
+
+    なんでもする:
+      - なんでもする
+      - なんでも
+      - 何でもする
+
+    淫夢:
+      - "114514"
+      - "1919"
+      - "810"
+      - (困惑)
+      - (迫真)
+      - たまげたなぁ
+      - 淫夢
+      - 野獣
+      - オナシャス
+      - イク
+      - イキスギィ
+      - 田所
+      - あ～いいっすね～
+      - あーいいっすねー
+      - この辺にぃ
+      - ♂
+      
+    破廉恥:
+      - おっぱい
+      - まんこ
+      - ちんぽ
+      - チンポ
+      - ㄘんㄘん
+      - ちんちん
+      - チンチン
+      - ちんこ
+      - てぃんぽ
+      - 乳首
+      - AV
+      - えっち
+      - エッチ
+    うるさい:
+      - うるさい
+      - うるせぇ
+      - うるせえ
+      - やかましい
+      - 喧しい
+      - 煩い
+      - ウルサイ
+      - 五月蝿い
+    かわいい:
+      - かわいい
+      - かあいい
+      - かぁいい
+      - 可愛い
+      - カワイイ
+      - kawaii
+      - キュート
+
+    かっこいい:
+      - かっこいい
+      - カッコイイ
+      - カッコいい
+      - 格好いい
+      - カッコイー
+    喜び:
+      - やった
+      - よかった
+      - 嬉しい
+      - うれしい
+      - わーい
+      - よっしゃ
+      - やっほう
+    要望:
+      - して
+    勧誘:
+      - (り|る|れ|ろ|っ)(て|う|ましょ)(よ|か|う)
+      - (ません|ない)(か|の)[？\?]?
+      - (し)?よう[？\?]?
+      - ろう[？\?]?
+    疑問:
+      - ですか？
+      - でしょうか[？\?]?
+      - なの[？\?]
+    断定:
+      - だ(よ|わ|わな|ぜ|お|にゃ|ずら)?
+      - (な(の|ん)){0,1}です(よ|わ|の|ぜ|にゃ|ずら)?
+      - や(よ|んか)?
+      - であ(る|ります)
+    is:
+      - \s\=\s
+      - \sis\s
+      - は
+      - は、
+      - とは
+      - って
+      - ってのは、
+      - というのは、
+      - っちゅうのは、
+    のために:
+      - のために
+      - の為に
+      - にむけて
+    に対して:
+      - に対して
+      - に
+      - へ
+      - へと
+    クソリプ:
+      - クソリプ
+      - ksrp
+      - くそりぷ
+      - kusoripu
+      - キチリプ
+      - キチツイ
+
+filter:
+  in:
+    海: 園田海未
+  out:
+    <数>: "315"

@@ -1,0 +1,36 @@
+package: github.com/u3paka/oteumi
+import:
+- package: github.com/BurntSushi/graphics-go
+  subpackages:
+  - graphics
+  - graphics/interp
+- package: github.com/PuerkitoBio/goquery
+- package: github.com/alfredxing/calc
+  subpackages:
+  - compute
+- package: github.com/cayleygraph/cayley
+  subpackages:
+  - graph/bolt
+- package: github.com/dghubble/go-twitter
+  subpackages:
+  - twitter
+- package: github.com/dghubble/oauth1
+- package: github.com/dustin/gojson
+- package: github.com/fsnotify/fsnotify
+- package: github.com/jmcvetta/randutil
+- package: github.com/k0kubun/pp
+- package: github.com/line/line-bot-sdk-go
+  subpackages:
+  - linebot
+- package: github.com/lucasb-eyer/go-colorful
+- package: github.com/mattn/go-pipeline
+- package: github.com/mattn/go-sqlite3
+- package: github.com/nfnt/resize
+- package: github.com/pkg/errors
+- package: github.com/robfig/cron
+- package: github.com/soniakeys/quant
+  subpackages:
+  - median
+- package: github.com/spf13/viper
+- package: github.com/urfave/cli
+- package: gopkg.in/redis.v5
